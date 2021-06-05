@@ -29,7 +29,7 @@ static SDL_RWops *RWops;
 
 #ifdef ROM_BROWSER
 #ifdef VERSION_GCW0
-static std::string gamedir = ("/media/data/roms");
+static std::string gamedir = (homedir + "/roms");
 #elif VERSION_RETROFW
 static std::string gamedir = (homedir + "/roms");
 #elif defined VERSION_BITTBOY || defined VERSION_POCKETGO
@@ -117,7 +117,7 @@ static int parse_ext_pal(const struct dirent *dir) {
         return 0;
     }
 
-    if(dir->d_type == DT_REG) {
+    if(true) {
         const char *ext = strrchr(dir->d_name,'.');
         if((!ext) || (ext == dir->d_name)) {
             return 0;
@@ -135,7 +135,7 @@ static int parse_ext_fil(const struct dirent *dir) {
         return 0;
     }
 
-    if(dir->d_type == DT_REG) {
+    if(true) {
         const char *ext = strrchr(dir->d_name,'.');
         if((!ext) || (ext == dir->d_name)) {
             return 0;
@@ -153,7 +153,7 @@ static int parse_ext_png(const struct dirent *dir) {
         return 0;
     }
 
-    if(dir->d_type == DT_REG) {
+    if(true) {
         const char *ext = strrchr(dir->d_name,'.');
         if((!ext) || (ext == dir->d_name)) {
             return 0;
@@ -172,7 +172,7 @@ static int parse_ext_zip_gb_gbc(const struct dirent *dir) {
         return 0;
     }
 
-    if(dir->d_type == DT_REG) {
+    if(true) {
         const char *ext = strrchr(dir->d_name,'.');
         if((!ext) || (ext == dir->d_name)) {
             return 0;
@@ -435,7 +435,7 @@ static void callback_loaddmggame(menu_t *caller_menu) {
     menu->back_callback = callback_back;
 
     std::string romdir = (gamedir + "/gb");
-    numgames = scandir(romdir.c_str(), &gamelist, parse_ext_zip_gb_gbc, alphasort);
+    numgames = 0;//scandir(romdir.c_str(), &gamelist, parse_ext_zip_gb_gbc, alphasort);
     if (numgames <= 0) {
         printf("scandir for %s failed.\n", romdir.c_str());
     } else {
@@ -507,7 +507,7 @@ static void callback_loadgbcgame(menu_t *caller_menu) {
     menu->back_callback = callback_back;
 
     std::string romdir = (gamedir + "/gbc");
-    numgames = scandir(romdir.c_str(), &gamelist, parse_ext_zip_gb_gbc, alphasort);
+    numgames = 0;//scandir(romdir.c_str(), &gamelist, parse_ext_zip_gb_gbc, alphasort);
     if (numgames <= 0) {
         printf("scandir for %s failed.\n", romdir.c_str());
     } else {
@@ -1167,29 +1167,7 @@ static void callback_scaler(menu_t *caller_menu) {
         menu_entry->callback = callback_selectedscaler;
     }
 
-#ifdef VERSION_GCW0
-    if (ipuscaling != "NONE") {
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "1.5x DMG-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
 
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "1.5x DMG-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "1.5x Scan-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "1.5x Scan-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-    }
-#endif
 
     menu_entry = new_menu_entry(0);
     menu_entry_set_text(menu_entry, "Aspect 1.66x Fast");
@@ -1214,29 +1192,7 @@ static void callback_scaler(menu_t *caller_menu) {
 
     }
 
-#ifdef VERSION_GCW0
-    if (ipuscaling != "NONE") {
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "Aspect DMG-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
 
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "Aspect DMG-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "Aspect Scan-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "Aspect Scan-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-    }
-#endif
 
     menu_entry = new_menu_entry(0);
     menu_entry_set_text(menu_entry, "FullScreen Fast");
@@ -1260,29 +1216,7 @@ static void callback_scaler(menu_t *caller_menu) {
         menu_entry->callback = callback_selectedscaler;
     }
 
-#ifdef VERSION_GCW0
-    if (ipuscaling != "NONE") {
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "FullScreen DMG-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
 
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "FullScreen DMG-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "FullScreen Scan-2x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-
-        menu_entry = new_menu_entry(0);
-        menu_entry_set_text(menu_entry, "FullScreen Scan-3x");
-        menu_add_entry(menu, menu_entry);
-        menu_entry->callback = callback_selectedscaler;
-    }
-#endif
 
     menu->selected_entry = currentEntryInList(menu, selectedscaler, 0);
     
@@ -1344,7 +1278,7 @@ static void callback_dmgpalette(menu_t *caller_menu) {
     menu_entry->callback = callback_autopalette;
 
     std::string palettedir = (homedir + "/.gambatte/palettes");
-    numpalettes = scandir(palettedir.c_str(), &palettelist, parse_ext_pal, alphasort);
+    numpalettes = 0;//scandir(palettedir.c_str(), &palettelist, parse_ext_pal, alphasort);
     if (numpalettes <= 0) {
         printf("scandir for ./gambatte/palettes/ failed.");
     } else {
@@ -1452,7 +1386,7 @@ static void callback_colorfilter(menu_t *caller_menu) {
     menu_entry->callback = callback_defaultfilter;
 
     std::string filterdir = (homedir + "/.gambatte/filters");
-    numfilters = scandir(filterdir.c_str(), &filterlist, parse_ext_fil, alphasort);
+    numfilters = 0;//scandir(filterdir.c_str(), &filterlist, parse_ext_fil, alphasort);
     if (numfilters <= 0) {
         printf("scandir for ./gambatte/filters/ failed.");
     } else {
@@ -1547,7 +1481,7 @@ static void callback_dmgborderimage(menu_t *caller_menu) {
     menu_entry->callback = callback_autodmgborder;
 
     std::string borderdir = (homedir + "/.gambatte/borders");
-    numdmgborders = scandir(borderdir.c_str(), &dmgborderlist, parse_ext_png, alphasort);
+    numdmgborders = 0;//scandir(borderdir.c_str(), &dmgborderlist, parse_ext_png, alphasort);
     if (numdmgborders <= 0) {
         printf("scandir for ./gambatte/borders/ failed.");
     } else {
@@ -1657,7 +1591,7 @@ static void callback_gbcborderimage(menu_t *caller_menu) {
     menu_entry->callback = callback_autogbcborder;
 
     std::string borderdir = (homedir + "/.gambatte/borders");
-    numgbcborders = scandir(borderdir.c_str(), &gbcborderlist, parse_ext_png, alphasort);
+    numgbcborders = 0;//scandir(borderdir.c_str(), &gbcborderlist, parse_ext_png, alphasort);
     if (numgbcborders <= 0) {
         printf("scandir for ./gambatte/borders/ failed.");
     } else {

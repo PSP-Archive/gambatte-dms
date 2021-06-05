@@ -472,7 +472,7 @@ void fullscreen_upscale_pseudobilinear(uint32_t* dst, uint32_t* src)
                 // -- Row 2 --
                 uint16_t  _2 = *(BlockSrc + 160 *  1    );
                 *(BlockDst + 320 *  1    ) = Weight2_3( _1,  _2);
-                uint16_t  _B = *(BlockSrc + 160 *  1 + 1);
+                uint16_t  _37 = *(BlockSrc + 160 *  1 + 1);
                 *(BlockDst + 320 *  1 + 1) = Weight2_3(Weight1_1( _1,  _A), Weight1_1( _2,  _B));
 
                 // -- Row 3 --
@@ -499,7 +499,7 @@ void fullscreen_upscale_pseudobilinear(uint32_t* dst, uint32_t* src)
                 // -- Row 2 --
                 uint16_t  _2 = *(BlockSrc + 160 *  1    );
                 *(BlockDst + 320 *  1    ) = Weight2_3( _1,  _2);
-                uint16_t  _B = *(BlockSrc + 160 *  1 + 1);
+                uint16_t  _37 = *(BlockSrc + 160 *  1 + 1);
                 *(BlockDst + 320 *  1 + 1) = Weight2_3(Weight1_1( _1,  _A), Weight1_1( _2,  _B));
 
                 // -- Row 3 --
@@ -515,7 +515,7 @@ void fullscreen_upscale_pseudobilinear(uint32_t* dst, uint32_t* src)
                 // -- Row 5 --
                 _2 = *(BlockSrc + 160 *  3    );
                 *(BlockDst + 320 *  4    ) = Weight3_2( _1,  _2);
-                _B = *(BlockSrc + 160 *  3 + 1);
+                _37 = *(BlockSrc + 160 *  3 + 1);
                 *(BlockDst + 320 *  4 + 1) = Weight3_2(Weight1_1( _1,  _A), Weight1_1( _2,  _B));
 
             }
@@ -943,7 +943,7 @@ void scaleborder166x(uint32_t* dst, uint32_t* src)
                 uint16_t  _6 = *(BlockSrc + 192 *  1 + 2);
                 *(BlockDst + 320 *  1 + 3) = Weight2_1(Weight2_1( _2,  _3), Weight2_1( _5,  _6));
                 *(BlockDst + 320 *  1 + 4) = Weight2_1( _3,  _6);
-                uint16_t  _B = *(BlockSrc + 192 *  1 + 3);
+                uint16_t  _37 = *(BlockSrc + 192 *  1 + 3);
                 *(BlockDst + 320 *  1 + 5) = Weight2_1(Weight1_2( _3,  _A), Weight1_2( _6,  _B));
 
                 // -- Row 3 --
@@ -961,7 +961,7 @@ void scaleborder166x(uint32_t* dst, uint32_t* src)
                 uint16_t  _9 = *(BlockSrc + 192 *  2 + 2);
                 *(BlockDst + 320 *  3 + 3) = Weight1_2(Weight2_1( _5,  _6), Weight2_1( _8,  _9));
                 *(BlockDst + 320 *  3 + 4) = Weight1_2( _6,  _9);
-                uint16_t  _C = *(BlockSrc + 192 *  2 + 3);
+                uint16_t  _38 = *(BlockSrc + 192 *  2 + 3);
                 *(BlockDst + 320 *  3 + 5) = Weight1_2(Weight1_2( _6,  _B), Weight1_2( _9,  _C));
 
                 // -- Row 5 --
@@ -991,7 +991,7 @@ void scaleborder166x(uint32_t* dst, uint32_t* src)
                 *(BlockDst + 320 *  1 + 2) = Weight2_1( _2,  _5);
                 uint16_t  _6 = *(BlockSrc + 192 *  1 + 2);
                 *(BlockDst + 320 *  1 + 3) = Weight2_1( _3,  _6);
-                uint16_t  _B = *(BlockSrc + 192 *  1 + 3);
+                uint16_t  _37 = *(BlockSrc + 192 *  1 + 3);
                 *(BlockDst + 320 *  1 + 4) = Weight2_1(Weight2_1( _3,  _A), Weight2_1( _6,  _B));
 
                 // -- Row 3 --
@@ -1009,7 +1009,7 @@ void scaleborder166x(uint32_t* dst, uint32_t* src)
                 *(BlockDst + 320 *  3 + 2) = Weight1_2( _5,  _8);
                 uint16_t  _9 = *(BlockSrc + 192 *  2 + 2);
                 *(BlockDst + 320 *  3 + 3) = Weight1_2( _6,  _9);
-                uint16_t  _C = *(BlockSrc + 192 *  2 + 3);
+                uint16_t  _38 = *(BlockSrc + 192 *  2 + 3);
                 *(BlockDst + 320 *  3 + 4) = Weight1_2(Weight2_1( _6,  _B), Weight2_1( _9,  _C));
 
                 // -- Row 5 --

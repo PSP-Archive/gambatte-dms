@@ -4,8 +4,8 @@
 
 target = ARGUMENTS.get('target', 0)
 if target == 'gcw0':
-    include_path = ' -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include'
-    bin_path = '/opt/gcw0-toolchain/usr/bin/mipsel-linux-'
+    include_path = ' -I/usr/local/pspdev/psp/sdk/include'
+    bin_path = '/usr/local/pspdev/bin/'
     version_defines = ' -DVERSION_GCW0'
     extra_cflags = ''
     print "Building Gambatte library with GCW0 toolchain..."
@@ -34,8 +34,8 @@ env = Environment(CPPPATH = ['src', 'include', '../common'],
                   CXXFLAGS = global_cxxflags + global_defines,
                   LINKFLAGS = global_linkflags,
                   variables = vars,
-                  CC = bin_path + 'gcc',
-                  CXX = bin_path + 'g++'                  
+                  CC = bin_path + 'psp-gcc',
+                  CXX = bin_path + 'psp-g++'                  
                   )
 
 sourceFiles = Split('''

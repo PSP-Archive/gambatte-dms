@@ -92,14 +92,14 @@ void makeSincKernel(short *const kernel, int const phases, int const phaseLen, d
 				double const *kp1 = dkp1;
 				double const *kp2 = dkp2;
 				long i = ph;
-				for (; i < M / 2 + 1; i += phases) {
-					gain += *kp1;
-					absgain += std::abs(*kp1++);
-				}
-				for (; i < M + 1; i += phases) {
-					gain += *kp2;
-					absgain += std::abs(*kp2--);
-				}
+				//for (; i < M / 2 + 1; i += phases) {
+					//gain += *kp1;
+					//absgain += std::abs(*kp1++);
+				//}
+				//for (; i < M + 1; i += phases) {
+					//gain += *kp2;
+					//absgain += std::abs(*kp2--);
+				//}
 			}
 
 			gain = 1.0 / gain;

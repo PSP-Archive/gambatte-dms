@@ -4,9 +4,9 @@
 
 target = ARGUMENTS.get('target', 0)
 if target == 'gcw0':
-    include_path = ' -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include'
-    bin_path = '/opt/gcw0-toolchain/usr/bin/mipsel-linux-'
-    sdl_path = '/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/bin/'
+    include_path = ' -I/usr/local/pspdev/psp/sdk/include'
+    bin_path = '/usr/local/pspdev/bin/'
+    sdl_path = '/usr/local/pspdev/psp/bin/'
     version_defines = ' -DVERSION_GCW0'
     extra_cflags = ''
     print "Building Gambatte SDL with GCW0 toolchain..."
@@ -36,8 +36,8 @@ vars.Add('CXX')
 env = Environment(CPPPATH = ['src', '../libgambatte/include', '../common'],
                   CFLAGS = global_cflags + global_defines,
                   CXXFLAGS = global_cxxflags + global_defines,
-                  CC = bin_path + 'gcc',
-                  CXX = bin_path + 'g++',
+                  CC = bin_path + 'psp-gcc',
+                  CXX = bin_path + 'psp-g++',
                   LINKFLAGS = global_linkflags + ' -lSDL_image -lSDL_mixer',
                   variables = vars)
 

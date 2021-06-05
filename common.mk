@@ -1,7 +1,7 @@
 
-CFLAGS = $(DEFINES) $(INCLUDES) $(OPT_FLAGS) -std=gnu11 
+CFLAGS = $(DEFINES) $(INCLUDES) $(OPT_FLAGS)
 CXXFLAGS = $(DEFINES) $(INCLUDES) $(OPT_FLAGS) -std=gnu++11 
-LDFLAGS = -Wl,--start-group -lSDL -lSDL_image -lpng -ljpeg -lSDL_mixer -logg -lvorbisidec -lmikmod -lmodplug -lm -pthread -lz -lstdc++ $(EXTRA_LDFLAGS) -Wl,--end-group
+LDFLAGS = -Wl,--start-group -lSDL -lSDL_image -lpng -ljpeg -lSDL_mixer -logg -lvorbisidec -lmikmod -lm -lz -lstdc++ $(EXTRA_LDFLAGS) -Wl,--end-group
 
 # Redream (main engine)
 OBJS =  \

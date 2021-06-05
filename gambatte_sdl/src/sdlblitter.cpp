@@ -132,7 +132,7 @@ void SdlBlitter::CheckIPU(){
 
 void SdlBlitter::SetVid(int w, int h, int bpp){	
 #ifdef VERSION_GCW0
-	screen = SDL_SetVideoMode(w, h, bpp, SDL_HWSURFACE | SDL_TRIPLEBUF);
+	screen = SDL_SetVideoMode(w, h, bpp, SDL_HWSURFACE | SDL_DOUBLEBUF);
 #elif VERSION_RETROFW
 	screen = SDL_SetVideoMode(w, h, bpp, SDL_HWSURFACE | SDL_TRIPLEBUF);
 #elif defined VERSION_BITTBOY || defined VERSION_POCKETGO
