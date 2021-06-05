@@ -93,10 +93,10 @@ void PSG::loadState(SaveState const &state) {
 void PSG::accumulateChannels(unsigned long const cycles) {
 	uint_least32_t *const buf = buffer_ + bufferPos_;
 	std::memset(buf, 0, cycles * sizeof *buf);
-	ch1_.update(buf, soVol_, cycles);
-	ch2_.update(buf, soVol_, cycles);
-	ch3_.update(buf, soVol_, cycles);
-	ch4_.update(buf, soVol_, cycles);
+	//ch1_.update(buf, soVol_, cycles);
+	//ch2_.update(buf, soVol_, cycles);
+	//ch3_.update(buf, soVol_, cycles);
+	//ch4_.update(buf, soVol_, cycles);
 }
 
 void PSG::generateSamples(unsigned long const cycleCounter, bool const doubleSpeed) {

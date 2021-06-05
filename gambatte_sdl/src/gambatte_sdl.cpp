@@ -16,6 +16,7 @@
 //   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 
+#include <SDL/SDL_main.h>
 #include "adaptivesleep.h"
 #include "audiosink.h"
 #include "blitterwrapper.h"
@@ -1223,8 +1224,7 @@ int GambatteSdl::run(long const sampleRate, int const latency, int const periods
 
 } // anon namespace
 
-int main(int argc, char **argv) {
+extern "C" int SDL_main(int argc, char* argv[]) {
 	GambatteSdl gambatteSdl;
 	return gambatteSdl.exec(argc, argv);
 }
-

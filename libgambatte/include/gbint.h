@@ -40,15 +40,15 @@ using ::uint_least16_t;
 #else
 
 namespace gambatte {
-#ifdef CHAR_LEAST_32
-typedef unsigned char uint_least32_t;
-#elif defined(SHORT_LEAST_32)
-typedef unsigned short uint_least32_t;
-#elif defined(INT_LEAST_32)
+//#ifdef CHAR_LEAST_32
+//typedef unsigned char uint_least32_t;
+//#elif defined(SHORT_LEAST_32)
+//typedef unsigned short uint_least32_t;
+//#elif defined(INT_LEAST_32)
 typedef unsigned uint_least32_t;
-#else
-typedef unsigned long uint_least32_t;
-#endif
+//#else
+//typedef unsigned long uint_least32_t;
+//#endif
 
 #ifdef CHAR_LEAST_16
 typedef unsigned char uint_least16_t;
