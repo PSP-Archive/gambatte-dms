@@ -68,26 +68,20 @@ TARGET = Gambatte
 
 # Define to build this as a prx (instead of a static elf)
 
-PSPDEV = $(shell psp-config -P)
-PSPSDK = $(shell psp-config -p)
 
-INCDIR  = $(PSPDEV)/include $(PSPDEV)/include/SDL $(PSPSDK)/include 
-INCDIR += libgambatte/src libgambatte/include
+PSPDEV=$(shell psp-config --pspdev-path)
+PSPSDK=$(shell psp-config --pspsdk-path)
 
-INCLUDES = -Ilibgambatte/src -Ilibgambatte/include -Icommon -I/usr/local/pspdev/psp/sdk/include -I/usr/local/pspdev/psp/include/SDL
+INCDIR  = $(PSPDEV)/psp/include/SDL libgambatte/src libgambatte/include common
 
-CFLAGS = -Dmain=SDL_main -DVERSION_GCW0 -G0 -Wall -Wextra -O2 -fomit-frame-pointer -ffunction-sections -ffast-math -fsingle-precision-constant -fpermissive -Wno-maybe-uninitialized $(INCLUDES)
-CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
-
-CPPPATH = libgambatte/src libgambatte/include
+CFLAGS = -Dmain=SDL_main -DVERSION_GCW0 -G0 -Wall -Wextra -O2 -fomit-frame-pointer -ffunction-sections -ffast-math -fsingle-precision-constant -fpermissive -Wno-maybe-uninitialized -DHAVE_STDINT_H
+CXXFLAGS = -fno-exceptions -fno-rtti
 
 EXTRA_TARGETS = EBOOT.PBP
 PSP_EBOOT_TITLE = "Gambatte"
 PSP_FW_VERSION = 500
 BUILD_PRX=1
 
-DEFINES = -DHAVE_STDINT_H
-INCLUDES += -Isrc/gambatte_sdl -Ilibgambatte -Icommon -Iinclude -Ilibgambatte/include -Ilibgambatte/src $(SDL_CFLAGS)
 LIBS=-lSDLmain -lSDL_mixer -lSDL -lSDL_image -lpng -ljpeg -logg -lvorbisidec -logg -lmikmod -lstdc++ -lGL -lpspirkeyb -lpsprtc -lpsppower -lpspvfpu -lpng -ljpeg -lpspaudio -lpspgu -lpsphprm -lpspsdk -lz -lm 
 OPT_FLAGS  = -Ofast -fdata-sections -fdata-sections -fno-common -fno-PIC -flto
 
